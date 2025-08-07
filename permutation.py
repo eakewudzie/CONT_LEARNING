@@ -1,6 +1,7 @@
 import torch
 from torchvision import datasets, transforms
 import numpy as np
+import matplotlib.pyplot as plt  # <-- import for visualization
 
 # 1. Function to permute pixels of a single image
 def permutate_image_pixels(image, permutation):
@@ -59,3 +60,22 @@ permuted_mnist_train = TransformedDataset(mnist_train, transform=permute_transfo
 image, label = permuted_mnist_train[0]
 print(image.shape)  # Should be (1, 28, 28)
 print(label)
+
+# --- Visualization ---
+
+# Also get the original image and label for comparison
+original_image, original_label = mnist_train[0]
+
+plt.figure(figsize=(8,4))
+
+plt.subplot(1,2,1)
+plt.title(f'Original: {original_label}')
+plt.imshow(original_image.squeeze(), cmap='gray')
+plt.axis('off')
+
+plt.subplot(1,2,2)
+plt.title(f'Permuted: {label}')
+plt.imshow(image.squeeze(), cmap='gray')
+plt.axis('off')
+
+plt.show()
