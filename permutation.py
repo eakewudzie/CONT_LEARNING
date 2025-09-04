@@ -79,3 +79,12 @@ plt.imshow(image.squeeze(), cmap='gray')
 plt.axis('off')
 
 plt.show()
+
+
+# The permutation transforms MNIST into a different but related classification problem, enabling researchers to:
+
+# Create multiple tasks from a single dataset
+
+# Test continual learning algorithms
+
+# See if models can learn representations beyond just spatial digit patterns
